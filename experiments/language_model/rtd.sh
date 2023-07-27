@@ -37,10 +37,10 @@ case ${init,,} in
 	 wget https://huggingface.co/microsoft/deberta-v3-xsmall/resolve/main/pytorch_model.bin
 	parameters=" --num_train_epochs 1 \
 	--model_config rtd_xsmall.json \
-	--warmup 10000 \
-	--num_training_steps 100000 \
+	--warmup 100 \
+	--num_training_steps 1000 \
 	--learning_rate 5e-5 \
-	--train_batch_size 64 \
+	--train_batch_size 16 \
 	--init_generator pytorch_model.generator.bin \
 	--init_discriminator pytorch_model.bin \
 	--decoupled_training True \
