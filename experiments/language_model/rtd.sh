@@ -33,16 +33,16 @@ init=$1
 tag=$init
 case ${init,,} in
 	deberta-v3-xsmall-continue)
-	# wget https://huggingface.co/microsoft/deberta-v3-xsmall/resolve/main/pytorch_model.generator.bin
-	# wget https://huggingface.co/microsoft/deberta-v3-xsmall/resolve/main/pytorch_model.bin
+	 wget https://huggingface.co/microsoft/deberta-v3-xsmall/resolve/main/pytorch_model.generator.bin
+	 wget https://huggingface.co/microsoft/deberta-v3-xsmall/resolve/main/pytorch_model.bin
 	parameters=" --num_train_epochs 1 \
 	--model_config rtd_xsmall.json \
 	--warmup 10000 \
 	--num_training_steps 100000 \
 	--learning_rate 5e-5 \
 	--train_batch_size 256 \
-	--init_generator <TODO: generator checkpoint> \
-	--init_discriminator <TODO: discriminator checkpoint> \
+	--init_generator pytorch_model.generator.bin \
+	--init_discriminator pytorch_model.bin \
 	--decoupled_training True \
 	--fp16 True "
 		;;
@@ -56,16 +56,16 @@ case ${init,,} in
 	--fp16 True "
 		;;
 	deberta-v3-small-continue)
-	# wget https://huggingface.co/microsoft/deberta-v3-small/resolve/main/pytorch_model.generator.bin
-	# wget https://huggingface.co/microsoft/deberta-v3-small/resolve/main/pytorch_model.bin
+	 wget https://huggingface.co/microsoft/deberta-v3-small/resolve/main/pytorch_model.generator.bin
+	 wget https://huggingface.co/microsoft/deberta-v3-small/resolve/main/pytorch_model.bin
 	parameters=" --num_train_epochs 1 \
 	--model_config rtd_small.json \
 	--warmup 10000 \
 	--num_training_steps 100000 \
 	--learning_rate 5e-5 \
 	--train_batch_size 256 \
-	--init_generator <TODO: generator checkpoint> \
-	--init_discriminator <TODO: discriminator checkpoint> \
+	--init_generator pytorch_model.generator.bin \
+	--init_discriminator pytorch_model.bin \
 	--decoupled_training True \
 	--fp16 True "
 		;;
