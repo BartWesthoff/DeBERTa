@@ -9,14 +9,14 @@ max_seq_length=512
 data_dir=$cache_dir/wiki103/spm_$max_seq_length
 
 function setup_wiki_data(){
-	task=$1
+	directory=$1
 	mkdir -p $cache_dir
 	if [[ ! -e  $cache_dir/spm.model ]]; then
 		wget -q https://huggingface.co/microsoft/deberta-v3-base/resolve/main/spm.model -O $cache_dir/spm.model
 	fi
 
 	if [[ ! -e  $data_dir/test.txt ]]; then
-		mkdir -p $data_dir
+    mkdir -p $data_dir
 		python ./prepare_data.py -i $directory/train_raw.txt -o $data_dir/train.txt --max_seq_length $max_seq_length
 		python ./prepare_data.py -i $directory/valid_raw.txt -o $data_dir/valid.txt --max_seq_length $max_seq_length
 		python ./prepare_data.py -i $directory/test_raw.txt -o $data_dir/test.txt --max_seq_length $max_seq_length
