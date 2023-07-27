@@ -16,12 +16,10 @@ function setup_wiki_data(){
 	fi
 
 	if [[ ! -e  $data_dir/test.txt ]]; then
-		wget -q https://s3.amazonaws.com/research.metamind.io/wikitext/wikitext-103-v1.zip -O $cache_dir/wiki103.zip
-		unzip -j $cache_dir/wiki103.zip -d $cache_dir/wiki103
 		mkdir -p $data_dir
-		python ./prepare_data.py -i $cache_dir/wiki103/wiki.train.tokens -o $data_dir/train.txt --max_seq_length $max_seq_length
-		python ./prepare_data.py -i $cache_dir/wiki103/wiki.valid.tokens -o $data_dir/valid.txt --max_seq_length $max_seq_length
-		python ./prepare_data.py -i $cache_dir/wiki103/wiki.test.tokens -o $data_dir/test.txt --max_seq_length $max_seq_length
+		python ./prepare_data.py -i $directory/train_raw.txt -o $data_dir/train.txt --max_seq_length $max_seq_length
+		python ./prepare_data.py -i $directory/valid_raw.txt -o $data_dir/valid.txt --max_seq_length $max_seq_length
+		python ./prepare_data.py -i $directory/test_raw.txt -o $data_dir/test.txt --max_seq_length $max_seq_length
 	fi
 }
 
