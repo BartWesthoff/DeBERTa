@@ -40,7 +40,7 @@ case ${init,,} in
 	--warmup 10000 \
 	--num_training_steps 100000 \
 	--learning_rate 5e-5 \
-	--train_batch_size 256 \
+	--train_batch_size 64 \
 	--init_generator pytorch_model.generator.bin \
 	--init_discriminator pytorch_model.bin \
 	--decoupled_training True \
