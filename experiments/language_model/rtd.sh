@@ -83,7 +83,7 @@ case ${init,,} in
 	--model_config rtd_large.json \
 	--warmup 100 \
 	--learning_rate 1e-4 \
-	--train_batch_size 16 \
+	--train_batch_size 4 \
 	--decoupled_training True \
 	--fp16 True "
 		;;
@@ -100,9 +100,9 @@ esac
 python -m DeBERTa.apps.run --model_config config.json  \
 	--tag $tag \
 	--do_train \
-	--num_training_steps 10000 \
+	--num_training_steps 1000 \
 	--max_seq_len $max_seq_length \
-	--dump 10000 \
+	--dump 100 \
 	--task_name $Task \
 	--data_dir $data_dir \
 	--vocab_path $cache_dir/spm.model \
