@@ -389,7 +389,7 @@ def build_argument_parser():
             help="Whether to run prediction on the test set.")
 
   parser.add_argument("--eval_batch_size",
-            default=32,
+            default=16,
             type=int,
             help="Total batch size for eval.")
 

@@ -51,7 +51,7 @@ case ${init,,} in
 	--model_config rtd_xsmall.json \
 	--warmup 10000 \
 	--learning_rate 3e-4 \
-	--train_batch_size 64 \
+	--train_batch_size 16 \
 	--decoupled_training True \
 	--fp16 True "
 		;;
@@ -63,7 +63,7 @@ case ${init,,} in
 	--warmup 10000 \
 	--num_training_steps 100000 \
 	--learning_rate 5e-5 \
-	--train_batch_size 256 \
+	--train_batch_size 16 \
 	--init_generator pytorch_model.generator.bin \
 	--init_discriminator pytorch_model.bin \
 	--decoupled_training True \
@@ -74,16 +74,16 @@ case ${init,,} in
 	--model_config rtd_base.json \
 	--warmup 10000 \
 	--learning_rate 1e-4 \
-	--train_batch_size 256 \
+	--train_batch_size 16 \
 	--decoupled_training True \
 	--fp16 True "
 		;;
 	deberta-v3-large)
 	parameters=" --num_train_epochs 1 \
 	--model_config rtd_large.json \
-	--warmup 10000 \
+	--warmup 100 \
 	--learning_rate 1e-4 \
-	--train_batch_size 256 \
+	--train_batch_size 16 \
 	--decoupled_training True \
 	--fp16 True "
 		;;
@@ -100,7 +100,7 @@ esac
 python -m DeBERTa.apps.run --model_config config.json  \
 	--tag $tag \
 	--do_train \
-	--num_training_steps 1000000 \
+	--num_training_steps 10000 \
 	--max_seq_len $max_seq_length \
 	--dump 10000 \
 	--task_name $Task \

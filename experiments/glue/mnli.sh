@@ -185,7 +185,7 @@ python -m DeBERTa.apps.run --model_config config.json  \
 	--tag $tag \
 	--do_train \
 	--max_seq_len 256 \
-	--eval_batch_size 256 \
+	--eval_batch_size 16 \
 	--dump_interval 1000 \
 	--task_name $Task \
 	--data_dir $cache_dir/glue_tasks/$Task \
